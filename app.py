@@ -88,7 +88,9 @@ class App:
                 self._key(key)
 
     def _filter_key(self, key):
-        if key in (curses.KEY_ENTER, 10, 13):
+        if key == curses.KEY_RESIZE:
+            self._build()
+        elif key in (curses.KEY_ENTER, 10, 13):
             self.filter_typing = False
             self.lp.apply_filter(self.filter_buf)
             self._refresh_detail()
