@@ -32,8 +32,8 @@ pip install windows-curses
 ## Usage
 
 ```bash
-python VaMPackageManager.py                     # Prompts for your VaM directory on launch
-python VaMPackageManager.py /path/to/VaM        # Or pass the path directly
+python VarLens.py                     # Prompts for your VaM directory on launch
+python VarLens.py /path/to/VaM        # Or pass the path directly
 ```
 
 ---
