@@ -19,20 +19,26 @@ def welcome_screen(stdscr) -> Optional[str]:
     stdscr.erase()
 
     banner = [
-        "=== VaM Package Manager ===",
-        "    Virt-a-Mate .var manager     ",
+        "██╗   ██╗ █████╗ ██████╗ ██╗     ███████╗███╗   ██╗███████╗",
+        "██║   ██║██╔══██╗██╔══██╗██║     ██╔════╝████╗  ██║██╔════╝",
+        "██║   ██║███████║██████╔╝██║     █████╗  ██╔██╗ ██║███████╗",
+        "╚██╗ ██╔╝██╔══██║██╔══██╗██║     ██╔══╝  ██║╚██╗██║╚════██║",
+        " ╚████╔╝ ██║  ██║██║  ██║███████╗███████╗██║ ╚████║███████║",
+        "  ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝",
     ]
-    sy = max(1, h // 2 - 5)
+    subtitle = "See what your .var packages depend on — and what's safe to delete."
+    sy = max(1, h // 2 - 6)
+    bx = max(0, (w - len(banner[0])) // 2)
     for i, line in enumerate(banner):
-        x = max(0, (w - len(line)) // 2)
-        addstr(stdscr, sy + i, x, line, A(C_TITLE, bold=(i == 0)))
+        addstr(stdscr, sy + i, bx, line, A(C_TITLE, bold=True))
+    addstr(stdscr, sy + 7, max(0, (w - len(subtitle)) // 2), subtitle, A(C_DIM))
 
     prompt = "Enter path to your VaM installation folder:"
-    addstr(stdscr, sy + 4, max(0, (w - len(prompt)) // 2), prompt, A(C_ACCENT, bold=True))
+    addstr(stdscr, sy + 9, max(0, (w - len(prompt)) // 2), prompt, A(C_ACCENT, bold=True))
 
     iw = min(64, w - 6)
     ix = (w - iw) // 2
-    iy = sy + 6
+    iy = sy + 11
     addstr(stdscr, iy, ix, "[" + " " * iw + "]", A(C_BORDER, bold=True))
     addstr(stdscr, iy + 2, ix, "Enter = open     Ctrl+C = quit", A(C_DIM))
 

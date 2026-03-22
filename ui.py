@@ -86,7 +86,7 @@ def draw_header(win, subtitle=""):
     h, w = win.getmaxyx()
     win.attron(A(C_HEADER, bold=True))
     win.hline(0, 0, " ", w)
-    text = "  VaM Package Manager"
+    text = "  VarLens"
     if subtitle:
         text += f"  |  {subtitle}"
     addstr(win, 0, 1, text[: w - 2], A(C_HEADER, bold=True))
