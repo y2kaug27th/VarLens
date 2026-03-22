@@ -1,6 +1,6 @@
-# VaM Package Manager
+# VarLens
 
-![Imgur Image](https://i.imgur.com/bP3fHX2.png)
+![Imgur Image](https://i.imgur.com/RkxYOk7.png)
 
 An interactive terminal UI for managing Virt-A-Mate `.var` packages — browse your library, inspect dependencies, find unused packages, and safely delete them.
 
@@ -53,7 +53,12 @@ python VaMPackageManager.py /path/to/VaM        # Or pass the path directly
 
 ---
 
-## Direct & Transitive Dependencies
+## Detail Panel
 
-- **Direct dependencies** — packages this `.var` explicitly requires to work.
-- **Transitive dependencies** — packages pulled in indirectly through direct dependencies.
+- **Creator, license, size, and file path**
+- **Direct dependencies** — packages this `.var` explicitly requires to work, each tagged with a status:
+  - `[ok | only you]` — safe to remove alongside this package
+  - `[ok | +N others]` — shared with N other packages, will be kept
+  - `[MISSING]` — referenced but not installed
+- **All transitive dependencies** — packages pulled in indirectly through direct dependencies
+- **Used by** — which packages depend on this one, none means it's safe to delete
